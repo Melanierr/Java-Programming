@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CharacterManager {
-    private final ArrayList < Item > inventory = new ArrayList < > ();
+    private final ArrayList < Item > inventory = new ArrayList <> ();
     private Character character;
     private final Scanner scanner;
 
@@ -25,7 +25,7 @@ public class CharacterManager {
                     System.out.println("========================");
                     System.out.print("Enter character name: ");
                     String characterName = scanner.nextLine();
-                    System.out.println("Select a class\n1. Knight 2. Archer 3.Mage\n");
+                    System.out.println("Select a class\n1.Knight\n2.Archer\n3.Mage");
                     String characterClass = scanner.nextLine();
                     createChar(characterName, characterClass);
                 }
@@ -38,9 +38,12 @@ public class CharacterManager {
                 }
                 case "3" -> {
                     InventoryManager inv = new InventoryManager(scanner, inventory, character);
-                    inv.run();
+                    inv.run(false);
                 }
                 case "4" -> isExit = true;
+                default -> {
+                    System.out.println("Invalid option");
+                }
             }
         }
     }
@@ -56,7 +59,7 @@ public class CharacterManager {
         return character;
     }
     public void runBattle(){
-        BattleManager battleconsole = new BattleManager(character, inventory, scanner);
-        battleconsole.run();
+        BattleManager BattleConsole = new BattleManager(character, inventory, scanner);
+        BattleConsole.run();
     }
 }
