@@ -24,8 +24,8 @@ public class BattleManager {
         for (int i = 0; i < enemies.size(); i++) {
             System.out.println(i + " " + enemies.get(i).toString());
         }
-        System.out.println(character);
         do {
+            System.out.println(character);
             System.out.println("Choose an option:\n1.Attack\n2.Defend\n3.Use Item\n4.Forfeit");
             String option = scanner.nextLine();
             switch (option) {
@@ -44,7 +44,7 @@ public class BattleManager {
                     }
                 }
                 case "2" -> {
-                    System.out.println(character.getName() + " defended for the next turn");
+                    System.out.println(character.getName() + " defend this turn");
                     character.setDefend(true);
                 }
                 case "3" -> {
@@ -76,9 +76,9 @@ public class BattleManager {
     void generateEnemy() {
         enemies.clear();
         enemies.add(new Enemy("Goblin Thief", 100, 15));
-        /* enemies.add(new Enemy("Slime", 80, 5));
-        enemies.add(new Enemy("Fire Dragon", 350, 20));
-        enemies.add(new Enemy("Ninja", 130, 25)); */
+        enemies.add(new Enemy("Slime", 80, 5));
+        /* enemies.add(new Enemy("Fire Dragon", 350, 20));*/ 
+        enemies.add(new Enemy("Ninja", 130, 25)); 
     }
     void randomEnemiesAttack(){
         int randomChoice =  rand.nextInt(enemies.size());
