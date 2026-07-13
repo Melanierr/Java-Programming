@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class StudentManager {
     private int nextId = 1;
-    ArrayList<Student> studentList = new ArrayList<>();
-    Scanner scanner;
+    private ArrayList<Student> studentList = new ArrayList<>();
+    private final Scanner scanner;
     StudentManager(Scanner scanner) {
         this.scanner = scanner;
     }
@@ -81,10 +81,8 @@ public class StudentManager {
     public ArrayList<Student> getStudentList() {
         return studentList;
     }
-    public void loadStudentList(ArrayList<Student> studentList) {
+    public void loadStudentList(ArrayList<Student> studentList, int ID) {
         this.studentList = studentList;
-    }
-    public void setNextId(int ID){
         this.nextId = ID;
     }
     public int getNextId(){
