@@ -15,7 +15,11 @@ public class Student {
         return String.format("Name: %s\n Age: %d\n ID: %s\n GPA: %.1f", getName(), getAge(), getStudentId(), this.gpa);
     }
     public String toSaveString() {
-        return String.format("%s,%d,%s,%.2f", name, age, studentId, gpa);
+        return String.format("%s,%d,%s,%.2f",
+                name,
+                age,
+                studentId,
+                gpa);
     }
     public String getName() {
         return this.name;
