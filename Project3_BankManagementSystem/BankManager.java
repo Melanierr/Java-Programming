@@ -26,7 +26,7 @@ public class BankManager {
         System.out.println("Searching...");
         BankAccount searchedAccount = null;
         for(BankAccount bankAccount : bankAccounts){
-            if(bankAccount.getName().equals(ID)){
+            if(bankAccount.getAccountNumber().equals(ID)){
                 searchedAccount = bankAccount;
                 break;
             }
@@ -37,5 +37,24 @@ public class BankManager {
         String id = String.format("%03d",accountId);
         accountId++;
         return id;
+    }
+    void transfer(BankAccount sender, BankAccount receiver, double amount){
+        if(sender.withdraw(amount)){
+            System.out.println("Successfully transferred " + amount + " to account " + receiver.getName());
+            receiver.deposit(amount);
+        }
+    }
+    public ArrayList<BankAccount> getAccountList(){
+        return bankAccounts;
+    }
+    public void setNewList(ArrayList<BankAccount> newList){
+        this.bankAccounts.clear();
+        this.bankAccounts = newList;
+    }
+    public void setId(int newId){
+        this.accountId = newId;
+    }
+    public int getId(){
+        return accountId;
     }
 }
