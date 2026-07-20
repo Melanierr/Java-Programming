@@ -2,6 +2,7 @@ public abstract class BankAccount {
     private String ownerName;
     private double balance;
     private String accountNumber;
+    private String accountType = "";
     BankAccount(String ownerName, String accountNumber, double balance) {
         this.ownerName = ownerName;
         this.accountNumber = accountNumber;
@@ -22,23 +23,18 @@ public abstract class BankAccount {
             return true;
         }
     }
-    public void transfer(BankAccount destination, double amount){
-        if(withdraw(amount)){
-            System.out.println("Successfully transferred " + amount + " to account " + getName());
-            destination.deposit(amount);
-        }
-    }
     public double getBalance(){
         return this.balance;
-    }
-    public void setName(String name){
-        this.ownerName = name;
     }
     public String getName(){
         return this.ownerName;
     }
+    public String getAccountNumber(){
+        return this.accountNumber;
+    }
     @Override
     public String toString() {
-        return String.format("Name: %s\nAccount number: %s\nBalance: %f", ownerName, accountNumber, balance);
+        return String.format("Name: %s\nAccount number: %s\nBalance: %f\nType: %s", getName(), accountNumber, getBalance(), getAccountType());
     }
+    public abstract String getAccountType();
 }
